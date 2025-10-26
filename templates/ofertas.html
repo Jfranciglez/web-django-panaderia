@@ -1,0 +1,51 @@
+{% load static %}
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Ofertas — El Dulce Enigma</title>
+</head>
+<body>
+  <div>
+  <h1>El Dulce Enigma — Ofertas</h1>
+  <h2>🥐 Ofertas Diarias</h2>
+  <ul>
+        {% for o in ofertas.ofertas_diarias %}
+        <li>
+            <strong>{{ o.titulo }}</strong><br>
+            {{ o.descripcion }} — <em>{{ o.precio }}</em>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>🍞 Promociones Semanales</h2>
+    <ul>
+        {% for o in ofertas.promociones_semanales %}
+        <li>
+            <strong>{{ o.titulo }}</strong><br>
+            {{ o.descripcion }} — <em>{{ o.precio }}</em>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>🍪 Ofertas Especiales</h2>
+    <ul>
+        {% for o in ofertas.ofertas_especiales %}
+        <li>
+            <strong>{{ o.titulo }}</strong><br>
+            {{ o.descripcion }} — <em>{{ o.precio }}</em>
+        </li>
+        {% endfor %}
+    </ul>
+
+   <a href="{% url 'index'%}">Volver al inicio</a>
+
+  <footer>
+    <p>© El Dulce Enigma — Promociones y ofertas vigentes.</p>
+  </footer>
+</div>
+</body>
+</html>
